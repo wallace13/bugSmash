@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css?family=Happy+Monkey');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'arial black', cursive;
+	cursor: url("../imagens/dedo.png"), auto;
+}
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#logo img{
+	top: 0;
+	width: 500px;
+	height: 300px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#game-play {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgb(95, 221, 243),white);
+	position: absolute;
+	top: 0;
+	left: 0
+}
+
+#game-start {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("../imagens/background-start-page.jpg");
+	background-size: cover;
+}
+#vitoria{
+	position: relative;
+	top: 15%;
+	bottom: 40%;
+	text-align: center;
+	margin: -25px 0 0 -25px;
+}
+#vitoria p{
+	font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	color: orange;
+	font-size: 40px;
+    width:400px;
+	text-align: center;
+	align-items: center;
+	margin: auto;
+	border: 5px solid white;
+	background:white;
+}
+#coracao img{
+	width: 200px;
+	height: 100px;
+	
+}
+.pontuacao{
+	display: inline-block;
+    align-items: center;
+    justify-content: center;
+	background: white;
+}
+#pontuacao2 img{
+	width: 80px;
+	height: 80px;
+    align-items: center;
+    justify-content: center;
+}
+#pontuacao1 img{
+	width: 50px;
+	height: 50px;
+}
+#pontuacao3 img{
+	width: 50px;
+	height: 50px;
+}
+.btn_jogo{
+	width:400px;
+    height:40px;
+    border: 5px solid #f2f2f2;
+    background: rgb(231, 38, 38);
+    color: #fff;
+    font-size: 15px;
+}
+.button-start {
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	left: 50%;
+	top: 50%;
+	margin: -10px 0 0 -150px;
+	font-size: 3em;
+	border-radius: 50%;
+	border: 10px solid #f2f2f2;
+	background: linear-gradient(to right, yellow, orange);
+	outline: none;
+}
+
+.fly {
+	position: absolute;
+	width: 92px;
+	height: 50px;
+	background: url("../imagens/fly.gif");
+	animation:  moveFly 15s linear;
+}
+#game-info {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+#game-info > span {
+	display: block
+}
+
+#game-info #life i {
+	font-size: 20px;
+	color: red;
+	margin: 0 2px
+}
+
+#game-info #score, #timer {
+	font-size: 1.6em;
+	color: white
+}
+@keyframes moveFly {
+	
+	0% {
+		top: 100%;
+	}
+	
+	100% {
+		top: -100px;
+	}
+	
+}
+
+/*Responsivo*/
+@media (max-device-width: 900px) {
+	#game-start {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(rgb(95, 221, 243),white);
+		background-size: cover;
+	}
+	.button-start {
+		position: absolute;
+		width: 400px;
+		height: 400px;
+		font-size: 5em;
+		left: 50%;
+		top: 50%;
+	}
+	#vitoria{
+		top: 20%;
+		bottom: 20%;
+	}
+	#vitoria p{
+		font-size: 80px;
+		width:800px;
+	}
+	#logo img{
+		top: 0;
+		width: 100%;
+		height: 50%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.btn_jogo{
+		width:800px;
+		height:80px;
+		font-size: 30px;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
