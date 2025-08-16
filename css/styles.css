@@ -15,10 +15,11 @@ html, body {
 #logo img{
 	top: 0;
 	width: 500px;
-	height: 300px;
+	height: 400px;
 	display: block;
     margin-left: auto;
     margin-right: auto;
+	object-fit: cover;  
 }
 #game-play {
 	width: 100%;
@@ -36,6 +37,7 @@ html, body {
 	height: 100%;
 	background-image: url("../imagens/background-start-page.jpg");
 	background-size: cover;
+	background-blend-mode: overlay;
 }
 #vitoria{
 	position: relative;
@@ -83,24 +85,38 @@ html, body {
 .btn_jogo{
 	width:400px;
     height:40px;
-    border: 5px solid #f2f2f2;
-    background: rgb(231, 38, 38);
+    border: 5px solid white;
+	background: linear-gradient(180deg, #ff4d4d 0%, #b30000 100%);
     color: #fff;
     font-size: 15px;
 }
+
+.btn_jogo:hover {
+    background: linear-gradient(180deg, #ff9900 0%, #ff6600 100%);
+}
+
 .button-start {
 	position: absolute;
 	width: 300px;
 	height: 300px;
 	left: 50%;
-	top: 50%;
-	margin: -10px 0 0 -150px;
+    top: 70%;
+    transform: translate(-50%, -50%);
 	font-size: 3em;
 	border-radius: 50%;
 	border: 10px solid #f2f2f2;
-	background: linear-gradient(to right, yellow, orange);
+	color: white;
+	background: linear-gradient(180deg, #ffd633 0%, #ff9900 100%);
+	/*background: linear-gradient(to right, yellow, orange);*/
 	outline: none;
 }
+
+.button-start:hover {
+	background: linear-gradient(180deg, #ff6600 0%, #cc0000 100%);
+	transform: translate(-50%, -50%) scale(1.08);
+	box-shadow: 0 12px 30px rgba(255, 102, 0, 0.6);
+}
+
 
 .fly {
 	position: absolute;
@@ -151,14 +167,7 @@ html, body {
 		background: linear-gradient(rgb(95, 221, 243),white);
 		background-size: cover;
 	}
-	.button-start {
-		position: absolute;
-		width: 400px;
-		height: 400px;
-		font-size: 5em;
-		left: 50%;
-		top: 50%;
-	}
+
 	#vitoria{
 		top: 20%;
 		bottom: 20%;
