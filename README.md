@@ -2,4 +2,4 @@
 Game de Matar Moscas
 
 
-## ✔️ Jogue Agora: [Clique aqui](https://wallace13.github.io/WsDesenvolvedor/](https://wallace13.github.io/bugSmash/).
+## ✔️ Jogue Agora: [Clique aqui](https://wallace13.github.io/bugSmash/).
