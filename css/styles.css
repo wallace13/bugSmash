@@ -7,11 +7,19 @@
 	font-family: 'arial black', cursive;
 	cursor: url("../imagens/dedo.png"), auto;
 	user-select: none;
+	-webkit-user-select: none; /* não seleciona texto */
+    -webkit-touch-callout: none; /* remove menu de toque */
+    -webkit-tap-highlight-color: transparent; /* remove highlight azul */
 }
 html, body {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+	user-select: none;
+	-webkit-user-select: none; /* não seleciona texto */
+    -webkit-touch-callout: none; /* remove menu de toque */
+    -webkit-tap-highlight-color: transparent; /* remove highlight azul */
+
 }
 #logo img{
 	top: 0;
@@ -157,6 +165,17 @@ html, body {
 	}
 	
 }
+
+.bomb {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: url('../imagens/bomb.gif') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+    z-index: 1000;
+}
+
 
 /*Responsivo*/
 @media (max-device-width: 900px) {

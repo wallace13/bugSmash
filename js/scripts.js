@@ -25,6 +25,10 @@
 		let life = $("#life")
 		let score = 0
 		let time = 60		
+
+		let bombUnlocked = false; // controle para não criar várias bombas
+		let flyIntervalTime = 600; // tempo inicial entre moscas
+		let flyInterval; // para controlar o setInterval das moscas
 		
 		// métodos do jogo
 		
@@ -57,6 +61,53 @@
 			
 			sound.append(source)
 		}
+
+	
+
+		// cria a bomba depois de 50 pontos
+		function createBomb() {
+			let windowX = getPositionX();
+
+			let bomb = $("<div class='bomb' />").css({
+				"top": "110%",   // começa fora da tela
+				"left": windowX + "px",
+				"position": "absolute"
+			});
+
+			bomb.on("click touchstart", activateBomb);
+
+			game_play.append(bomb);
+
+			// faz a bomba subir
+			let moveBomb = setInterval(() => {
+				let currentTop = parseInt(bomb.css("top"));
+				if (currentTop <= -50) { // saiu da tela
+					clearInterval(moveBomb);
+					bomb.remove();
+				} else {
+					bomb.css("top", (currentTop - 2) + "px"); // ajusta velocidade
+				}
+			}, 30);
+		}
+
+		// ativa a bomba
+		function activateBomb() {
+			let killedFlies = $(".fly").length; // todas as moscas na tela
+			score += killedFlies;               // adiciona ao score
+			$("#score span").text(score);       // atualiza a tela
+			lifePlus(score);                    // vidas extras se houver
+
+			$(".fly").remove();                 // remove todas as moscas
+			$(this).remove();                   // remove a bomba
+
+			// acelera as moscas após usar a bomba
+			if (flyIntervalTime > 200) {       // limite mínimo de 200ms
+				flyIntervalTime -= 100;        // aumenta a velocidade
+				clearInterval(flyInterval);    // reseta o intervalo
+				createFly();                   // reinicia com nova velocidade
+			}
+		}
+
 		
 		function createFly() {
 			setInterval(() => {
@@ -83,7 +134,7 @@
 
 				flies = $(".fly")
 				
-			}, 500)
+			}, flyIntervalTime)
 		}
 		
 		function getPositionX() {
@@ -110,6 +161,7 @@
 				
 				$.each(flies, function(index, element){
 					element.addEventListener("click", killBug)
+					element.addEventListener("touchstart", killBug)
 					element.addEventListener("click", altera)
 					
 				})
@@ -136,8 +188,10 @@
 		window.onclick = altera;
 		//Altera a mosca para Morta
 		function altera() {
-			 $(this).css("background", "url(imagens/deadlyFly.png)");
-			 $(this).css("animation", "paused, moveFly 15s linear paused");
+			$(this).css({
+				"background": "url(imagens/deadlyFly.png)",
+				"animation-play-state": "paused"
+			})
 		}
 		
 		function killBug() {
@@ -182,6 +236,11 @@
 		function setScore() {
 			score++
 			$("#score span").text(score)
+
+			// depois de 50 pontos, aparece a bomba
+			if (score % 50 === 0) {
+				createBomb()
+			}
 
 		}
 		//Remove Vida e se a vida for menor que 1 o jogo termina
