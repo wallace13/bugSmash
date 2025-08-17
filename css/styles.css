@@ -6,6 +6,7 @@
 	box-sizing: border-box;
 	font-family: 'arial black', cursive;
 	cursor: url("../imagens/dedo.png"), auto;
+	user-select: none;
 }
 html, body {
 	width: 100%;
